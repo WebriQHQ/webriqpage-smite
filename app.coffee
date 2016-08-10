@@ -34,11 +34,11 @@ module.exports =
     ),
     roots_rss_generator(
       folder: "posts"
-      output: "./public/feed.xml"
+      output: "feed.xml"
       maxcount: 5
       settings:
         title: "New title"
-        feed_url: "http://mysite.com/feed.xml"
+        feed_url: "https://smite.netlify.com/feed.xml"
         description: "This is new description"
     ),
     collections(folder: 'pages', layout: 'page'),
