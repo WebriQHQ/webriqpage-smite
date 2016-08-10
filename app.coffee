@@ -8,6 +8,7 @@ records      = require 'roots-records'
 collections  = require 'roots-collections'
 excerpt      = require 'html-excerpt'
 moment       = require 'moment'
+roots_rss_generator =  require 'webriq-roots-rss-generator'
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
@@ -30,6 +31,15 @@ module.exports =
       characters: { file: "data/characters.json" }
       socials: { file: "data/socials.json" }
       site: { file: "data/site.json" }
+    ),
+    roots_rss_generator(
+      folder: "posts"
+      output: "./public/feed.xml"
+      maxcount: 5
+      settings:
+        title: "New title"
+        feed_url: "http://mysite.com/feed.xml"
+        description: "This is new description"
     ),
     collections(folder: 'pages', layout: 'page'),
     js_pipeline(files: 'assets/js/*.coffee'),
